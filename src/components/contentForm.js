@@ -6,10 +6,12 @@ import {
   addToBasket,
   selectItemsFromBasket,
 } from '../redux/slices/basketSlice';
+import { selectItemsFromStickySlice } from '../redux/slices/stickySlice';
 
 function ContentForm() {
   const dispatch = useDispatch();
   const basket = useSelector(selectItemsFromBasket);
+  const stuck = useSelector(selectItemsFromStickySlice);
 
   const [inputText, setInputText] = useState('');
 
@@ -25,18 +27,33 @@ function ContentForm() {
     );
   }
 
-  return (
-    <form className="" onSubmit={handleSubmit}>
-      <TextField
-        id="standard-basic"
-        label="Item"
-        onInput={(e) => setInputText(e.target.value)}
-      />
-      <Button variant="contained" type="submit">
-        Default
-      </Button>
-    </form>
-  );
+  if (stuck === true) {
+    return (
+      <form className="stuck" onSubmit={handleSubmit}>
+        <TextField
+          id="standard-basic"
+          label="Item"
+          onInput={(e) => setInputText(e.target.value)}
+        />
+        <Button variant="contained" type="submit">
+          Default
+        </Button>
+      </form>
+    );
+  } else {
+    return (
+      <form className="" onSubmit={handleSubmit}>
+        <TextField
+          id="standard-basic"
+          label="Item"
+          onInput={(e) => setInputText(e.target.value)}
+        />
+        <Button variant="contained" type="submit">
+          Default
+        </Button>
+      </form>
+    );
+  }
 }
 
 export default ContentForm;

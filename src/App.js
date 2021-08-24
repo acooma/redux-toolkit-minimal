@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useRef, useEffect  } from 'react';
 import './App.css';
 import ContentForm from './components/contentForm';
 import Gallery from './components/gallery';
+import StickyHeader from './components/stickyHeader';
 
 function App() {
   return (
     <div className="App">
-      <ContentForm />
+      <StickyHeader />
+      <ContentForm  />
+      <Gallery />
+      {/*junk for testing sticky scroll*/}
+      <Gallery />
+      <Gallery />
+      <Gallery />
       <Gallery />
     </div>
   );

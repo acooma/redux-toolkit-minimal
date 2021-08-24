@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.stuck {
+  padding-top: 5rem; 
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,4 +40,29 @@
   100% {
     transform: translateY(0px);
   }
+}
+
+.my-sticky-header {
+  width: 100%;
+  height: 5rem;
+  background-color: black;
+  /* top: 0; */
+  /* position:sticky; */
+  z-index: 999;
+}
+
+.my-sticky-header-sticky {
+  width: 100%;
+  height: 5rem;
+  background-color: black;
+  z-index: 999;
+  position: fixed;
+}
+
+.my-sticky-header text {
+  color: white;
+}
+
+.my-sticky-header-stick text {
+  color: white;
 }
