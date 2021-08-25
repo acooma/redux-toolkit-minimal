@@ -1,4 +1,4 @@
-import React, { useRef, useEffect  } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './App.css';
 import ContentForm from './components/contentForm';
 import Gallery from './components/gallery';
@@ -8,13 +8,15 @@ function App() {
   return (
     <div className="App">
       <StickyHeader />
-      <ContentForm  />
-      <Gallery />
+      <ContentForm />
+      <div className="container">
+        <Gallery />
+      </div>
       {/*junk for testing sticky scroll*/}
+      {/* <Gallery />
       <Gallery />
       <Gallery />
-      <Gallery />
-      <Gallery />
+      <Gallery /> */}
     </div>
   );
 }

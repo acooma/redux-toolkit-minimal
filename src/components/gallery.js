@@ -7,10 +7,15 @@ function Gallery() {
   const basket = useSelector(selectItemsFromBasket);
 
   return (
-    <div>
+    <div class="row">
       {basket
         ? basket.map((item, i) => (
-            <Card key={i} id={item.id} name={item.name} description={item.description}/>
+            <Card
+              key={i}
+              id={item.id}
+              name={item.name}
+              description={item.description}
+            />
           ))
         : null}
     </div>

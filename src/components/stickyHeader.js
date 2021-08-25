@@ -29,7 +29,7 @@ function StickyHeader() {
   }
 
   console.log(stickyFlag);
-  if (scrollPos > 0.084) {
+  if (scrollPos > 0.06) {
     dispatch(setStickyFlag(true));
     return (
       <div class="my-sticky-header-sticky">

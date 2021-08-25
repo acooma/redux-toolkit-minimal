@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeFromBasket } from '../redux/slices/basketSlice';
+import Modal from './modal';
 
 function Card({ id, name, description }) {
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const removeItemFromBasket = () => {
     const product = {
@@ -15,21 +17,31 @@ function Card({ id, name, description }) {
   };
 
   return (
-    <div class="card text-white bg-primary mb-3">
+    <div class="card my-card text-black bg-light m-2 p-0">
       <div class="card-header">{name}</div>
-      <div class="card-body">
-        <h5 class="card-title">{description}</h5>
+      <div class="d-flex justify-content-center">
+        <button
+          type="button"
+          class="btn btn-warning m-2"
+          data-toggle="popover"
+          data-content="popover content"
+          onClick={() => setIsOpen(true)}
+        >
+          See Details
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger m-2"
+          onClick={removeItemFromBasket}
+        >
+          Delete
+        </button>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">{id}</h5>
-      </div>
-      <button
-        type="button"
-        class="btn btn-danger"
-        onClick={removeItemFromBasket}
-      >
-        Delete
-      </button>
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        <div class="">id: {id}</div>
+        <div class="">description: {description}</div>
+      </Modal>
+      <div />
     </div>
   );
 }
