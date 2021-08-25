@@ -28,7 +28,7 @@ function StickyHeader() {
     // console.log('scrolled', scrolled);
   }
 
-  console.log(stickyFlag);
+  // console.log(stickyFlag);
   if (scrollPos > 0.06) {
     dispatch(setStickyFlag(true));
     return (

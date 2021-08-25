@@ -77,4 +77,36 @@
 
 .my-card {
   width:15rem!important;
+  transition: 0.4s ease all;
 }
+
+.my-card:hover {
+  border-color: blue;
+}
+
+.my-modal {
+  transition: 0.4s ease all;
+}
+
+.MODAL_STYLES {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  padding: 50px;
+  z-index: 1000;
+  color: black;
+  transform: translate(-50%,-50%) scale(1);
+  transition: 0.4s ease all;
+}
+
+.OVERLAY_STYLES {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.7);
+  z-index: 999;
+  transition: 0.4s ease all;
+};
