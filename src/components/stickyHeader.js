@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectItemsFromStickySlice, setStickyFlag } from '../redux/slices/stickySlice';
+import {
+  selectItemsFromStickySlice,
+  setStickyFlag,
+} from '../redux/slices/stickySlice';
+import VoiceBar from '../components/voiceBar';
 
 function StickyHeader() {
   const [scrollPos, setScrollPos] = useState('');
@@ -33,17 +37,17 @@ function StickyHeader() {
     dispatch(setStickyFlag(true));
     return (
       <div class="my-sticky-header-sticky">
-        <text>HELLO</text>
+        <VoiceBar />
       </div>
     );
   } else {
     dispatch(setStickyFlag(false));
     return (
       <div class="my-sticky-header">
-        <text>HELLO</text>
+        <VoiceBar />
       </div>
     );
-}
+  }
 }
 
 export default StickyHeader;

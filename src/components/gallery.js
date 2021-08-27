@@ -7,7 +7,7 @@ function Gallery() {
   const basket = useSelector(selectItemsFromBasket);
 
   return (
-    <div class="row">
+    <div class="row d-flex justify-content-center">
       {basket
         ? basket.map((item, i) => (
             <Card
