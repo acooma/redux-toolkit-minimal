@@ -29,15 +29,15 @@ function ContentForm() {
 
   if (isSticky === true) {
     return (
-      <form className="stuck" onSubmit={handleSubmit}>
+      <form className="stuck align-baseline" onSubmit={handleSubmit}>
         <TextField
           id="standard-basic"
           label="Item"
           onInput={(e) => setInputText(e.target.value)}
         />
-        <Button variant="contained" type="submit">
-          Default
-        </Button>
+          <Button variant="contained" type="submit" class="btn btn-success">
+            Add
+          </Button>
       </form>
     );
   } else {
@@ -48,8 +48,8 @@ function ContentForm() {
           label="Item"
           onInput={(e) => setInputText(e.target.value)}
         />
-        <Button variant="contained" type="submit">
-          Default
+        <Button variant="contained" type="submit" class="btn btn-success mt-2 ml-2">
+          Add
         </Button>
       </form>
     );
