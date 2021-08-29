@@ -47,7 +47,7 @@ const VoiceBar = React.memo((props) => {
     var flagsPayload = { isFound: false, isOpen: false };
     dispatch(setIsFound(flagsPayload));
   }
-
+  
   if (placeHolder !== transcript) {
     for (let i = 0; i < options.items.length; i++) {
       if (transcript.includes(options.items[i].value)) {
@@ -62,8 +62,10 @@ const VoiceBar = React.memo((props) => {
       }
     }
   }
+
   console.log('transcript:', transcript);
   console.log('flags: ', flags);
+  
   return (
     <div class="d-flex justify-content-center text-white">
       <div class="inline-block relative w-75 top-1 right-1">
