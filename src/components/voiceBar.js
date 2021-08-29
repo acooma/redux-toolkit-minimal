@@ -16,6 +16,7 @@ const VoiceBar = React.memo((props) => {
   const dispatch = useDispatch();
   const options = useSelector(selectOptionsBasket);
   const [placeHolder, setPlaceHolder] = useState('');
+  const [foundSubstring, setFoundSubstring] = useState('');
 
   const {
     transcript,
@@ -47,16 +48,20 @@ const VoiceBar = React.memo((props) => {
     dispatch(setIsFound(flagsPayload));
   }
 
-  if (transcript.includes(options.items[0].value)) {
-    console.log('we have a match: ', options.items[0].value);
-    var flagsPayload = { isFound: true, isOpen: true };
-    if (flags !== flagsPayload) {
-      dispatch(setIsFound(flagsPayload));
-      setPlaceHolder(transcript);
-      resetTranscript();
+  if (placeHolder !== transcript) {
+    for (let i = 0; i < options.items.length; i++) {
+      if (transcript.includes(options.items[i].value)) {
+        setFoundSubstring(options.items[i].value);
+        console.log('we have a match: ', foundSubstring);
+        var flagsPayload = { isFound: true, isOpen: true };
+        if (flags !== flagsPayload) {
+          dispatch(setIsFound(flagsPayload));
+          setPlaceHolder(transcript);
+          resetTranscript();
+        }
+      }
     }
   }
-
   console.log('transcript:', transcript);
   console.log('flags: ', flags);
   return (
@@ -86,7 +91,7 @@ const VoiceBar = React.memo((props) => {
       </div>
       {renderIcon()}
       <Modal open={flags.isOpen} onClose={closeModal}>
-        <div class="">Yes, we have {options.items[0].value}</div>
+        <div class="">Yes, we have {foundSubstring}</div>
       </Modal>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 import ContentForm from './components/contentForm';
 import Gallery from './components/gallery';

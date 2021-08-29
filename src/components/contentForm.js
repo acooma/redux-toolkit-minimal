@@ -11,7 +11,7 @@ import { selectItemsFromStickySlice } from '../redux/slices/stickySlice';
 function ContentForm() {
   const dispatch = useDispatch();
   const basket = useSelector(selectItemsFromBasket);
-  const stuck = useSelector(selectItemsFromStickySlice);
+  const isSticky = useSelector(selectItemsFromStickySlice);
 
   const [inputText, setInputText] = useState('');
 
@@ -27,7 +27,7 @@ function ContentForm() {
     );
   }
 
-  if (stuck === true) {
+  if (isSticky === true) {
     return (
       <form className="stuck" onSubmit={handleSubmit}>
         <TextField

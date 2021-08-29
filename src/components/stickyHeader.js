@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectItemsFromStickySlice,
-  setStickyFlag,
-} from '../redux/slices/stickySlice';
+import { useDispatch } from 'react-redux';
+import { setStickyFlag } from '../redux/slices/stickySlice';
 import VoiceBar from '../components/voiceBar';
 
-const StickyHeader = (props => {
-  const [scrollPos, setScrollPos] = useState('');
-  const stickyFlag = useSelector(selectItemsFromStickySlice);
+const StickyHeader = (props) => {
+  const [windScroll, setWindScroll] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,16 +19,16 @@ const StickyHeader = (props => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
 
-    const scrolled = winScroll / height;
+    // const scrolled = winScroll / height;
 
-    setScrollPos(scrolled);
+    setWindScroll(winScroll);
 
-    // console.log('winScroll', winScroll);
+    // console.log('windScroll', windScroll);
     // console.log('height', height);
     // console.log('scrolled', scrolled);
   }
 
-  if (scrollPos > 0.06) {
+  if (windScroll >= 66) {
     dispatch(setStickyFlag(true));
     return (
       <div class="my-sticky-header-sticky">
@@ -47,6 +43,6 @@ const StickyHeader = (props => {
       </div>
     );
   }
-});
+};
 
 export default StickyHeader;
