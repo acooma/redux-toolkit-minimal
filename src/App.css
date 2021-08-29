@@ -46,15 +46,13 @@
   width: 100%;
   height: inherit;
   background-color: #ced4da;
-  /* top: 0; */
-  /* position:sticky; */
   z-index: 999;
 }
 
 .my-sticky-header-sticky {
   width: 100%;
-  height: 5rem;
-  background-color: black;
+  height: inherit;
+  background-color: #ced4da;
   z-index: 999;
   position: fixed;
 }

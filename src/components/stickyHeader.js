@@ -6,7 +6,7 @@ import {
 } from '../redux/slices/stickySlice';
 import VoiceBar from '../components/voiceBar';
 
-function StickyHeader() {
+const StickyHeader = (props => {
   const [scrollPos, setScrollPos] = useState('');
   const stickyFlag = useSelector(selectItemsFromStickySlice);
   const dispatch = useDispatch();
@@ -32,7 +32,6 @@ function StickyHeader() {
     // console.log('scrolled', scrolled);
   }
 
-  // console.log(stickyFlag);
   if (scrollPos > 0.06) {
     dispatch(setStickyFlag(true));
     return (
@@ -48,6 +47,6 @@ function StickyHeader() {
       </div>
     );
   }
-}
+});
 
 export default StickyHeader;

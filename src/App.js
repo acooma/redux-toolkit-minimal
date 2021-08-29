@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import ContentForm from './components/contentForm';
 import Gallery from './components/gallery';
@@ -12,11 +12,6 @@ function App() {
       <div className="container">
         <Gallery />
       </div>
-      {/*junk for testing sticky scroll*/}
-      {/* <Gallery />
-      <Gallery />
-      <Gallery />
-      <Gallery /> */}
     </div>
   );
 }
