@@ -50,6 +50,7 @@ const VoiceBar = React.memo((props) => {
 
   if (!listening) {
     if (placeHolder !== transcript) {
+      setPlaceHolder(transcript);
       for (let i = 0; i < options.items.length; i++) {
         if (transcript.includes(options.items[i].value)) {
           setFoundSubstring(options.items[i].value);
@@ -57,28 +58,27 @@ const VoiceBar = React.memo((props) => {
           var flagsPayload = { isFound: true, isOpen: true };
           if (flags !== flagsPayload) {
             dispatch(setIsFound(flagsPayload));
-            setPlaceHolder(transcript);
             resetTranscript();
           }
         }
       }
     }
   }
-
-  // console.log('transcript:', transcript);
-  // console.log('flags: ', flags);
+  console.log('transcript:', transcript);
+  console.log('flags: ', flags);
 
   return (
     <div class="d-flex justify-content-center text-white">
       <div class="inline-block relative w-75 top-1 right-1">
         <input
           type="text"
-          placeholder={placeHolder}
+          placeholder={listening ? transcript : placeHolder}
           class="w-full mt-2 px-4 py-2 mb-3 border rounded-lg text-gray-700 focus:outline-none focus:border-red-400"
         />
       </div>
       <div class="mt-2.5">
         <button
+          id="start"
           type="button"
           class="btn btn-primary m-1"
           onClick={SpeechRecognition.startListening}
@@ -86,6 +86,7 @@ const VoiceBar = React.memo((props) => {
           Start
         </button>
         <button
+          id="stop"
           type="button"
           class="btn btn-danger m-1"
           onClick={SpeechRecognition.stopListening}

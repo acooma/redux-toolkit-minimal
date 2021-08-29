@@ -35,7 +35,7 @@ function ContentForm() {
           label="Item"
           onInput={(e) => setInputText(e.target.value)}
         />
-          <Button variant="contained" type="submit" class="btn btn-success">
+          <Button id="add" variant="contained" type="submit" class="btn btn-success">
             Add
           </Button>
       </form>
@@ -48,7 +48,7 @@ function ContentForm() {
           label="Item"
           onInput={(e) => setInputText(e.target.value)}
         />
-        <Button variant="contained" type="submit" class="btn btn-success mt-2 ml-2">
+        <Button id="add" variant="contained" type="submit" class="btn btn-success mt-2 ml-2">
           Add
         </Button>
       </form>
