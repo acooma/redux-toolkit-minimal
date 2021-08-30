@@ -10,6 +10,7 @@ import {
   setIsFound,
 } from '../redux/slices/inputFoundSlice';
 import { selectOptionsBasket } from '../redux/slices/optionsBasketSlice';
+import Tooltip from './tooltip.js';
 
 const VoiceBar = React.memo((props) => {
   const flags = useSelector(selectFlagFromInputFoundSlice);
@@ -76,23 +77,27 @@ const VoiceBar = React.memo((props) => {
           class="w-full mt-2 px-4 py-2 mb-3 border rounded-lg text-gray-700 focus:outline-none focus:border-red-400"
         />
       </div>
-      <div class="mt-2.5">
-        <button
-          id="start"
-          type="button"
-          class="btn btn-primary m-1"
-          onClick={SpeechRecognition.startListening}
-        >
-          Start
-        </button>
-        <button
-          id="stop"
-          type="button"
-          class="btn btn-danger m-1"
-          onClick={SpeechRecognition.stopListening}
-        >
-          Stop
-        </button>
+      <div class=" my-2.5 d-flex flex-row">
+        <Tooltip content="Click me to start recording" direction="bottom">
+          <button
+            id="start"
+            type="button"
+            class="btn btn-primary m-1"
+            onClick={SpeechRecognition.startListening}
+          >
+            Start
+          </button>
+        </Tooltip>
+        <Tooltip content="Click me to stop recording" direction="bottom">
+          <button
+            id="stop"
+            type="button"
+            class="btn btn-danger m-1"
+            onClick={SpeechRecognition.stopListening}
+          >
+            Stop
+          </button>
+        </Tooltip>
       </div>
       {renderIcon()}
       <Modal open={flags.isOpen} onClose={closeModal}>

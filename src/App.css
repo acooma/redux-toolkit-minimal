@@ -120,3 +120,8 @@
 .icon-wrapper {
  position:fixed;
 }
+
+.button-row {
+  height: inherit;
+  width: inherit;
+}
